@@ -1,13 +1,15 @@
 2021/02/17
-1.init.c、init.h
+1.init.c、init.h——init.c、init.h完成
 
 2021/02/18
 1.common_cfg.h
-2.common_cfg.c一部分
+2.common_cfg.c
 
 2021/02/19
 1.common_cfg.c
-2.default.h 
+2.default.h ——default.h完成
 
-2021/02/20
+2021/02/21
+1.common_cfg.c（eeprom.c内容加至common_cfg.c中）——common_cfg.c、common_cfg.h完成
+2.
 
