@@ -1,0 +1,6 @@
+stm8l15x_i2c.pbi: \
+  D:\1.AGPS\6.AGPS-NB_TEST\Libraries\STM8L15x_StdPeriph_Driver\src\stm8l15x_i2c.c \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x_i2c.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\intrinsics.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x_clk.h

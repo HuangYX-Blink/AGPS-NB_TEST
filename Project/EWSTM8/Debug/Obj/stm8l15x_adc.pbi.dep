@@ -1,0 +1,53 @@
+stm8l15x_adc.pbi: \
+  D:\1.AGPS\6.AGPS-NB_TEST\Libraries\STM8L15x_StdPeriph_Driver\src\stm8l15x_adc.c \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x_adc.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\intrinsics.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_conf.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_adc.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_aes.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_beep.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_clk.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_comp.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_dac.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_dma.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_exti.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\inc\common_cfg.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x_conf.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc\stm8l15x_exti.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\stdio.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\ycheck.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\yvals.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\DLib_Defaults.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\LIB\dlstm8smn.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\DLib_Product.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\xencoding_limits.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\DLib_Threads.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\ysizet.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\ystdio.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\string.h \
+  D:\Program\ Files\ (x86)\IAR\ Systems\Embedded\ Workbench\ 8.3\stm8\inc\c\stdlib.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\inc/init.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\inc/common_cfg.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\inc/default.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_flash.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_gpio.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_i2c.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_irtim.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_itc.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_iwdg.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_lcd.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_pwr.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_rst.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_rtc.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_spi.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_syscfg.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_tim1.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_tim2.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_tim3.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_tim4.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_tim5.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_usart.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_wfe.h \
+  D:\1.AGPS\6.AGPS-NB_TEST\Project\EWSTM8\..\..\Libraries\STM8L15x_StdPeriph_Driver\inc/stm8l15x_wwdg.h
