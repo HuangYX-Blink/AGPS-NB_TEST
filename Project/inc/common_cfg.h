@@ -45,7 +45,7 @@ typedef enum
 
 typedef enum
 {
-	NB_NEY_UNREG,		// 网络未注册
+	NB_NET_UNREG,		// 网络未注册
 	NB_CSQ_LOW,			// 信号弱
 	NB_CSQ_HIGH			// 信号强
 }LED_STATUS_TypeDef;
@@ -115,9 +115,9 @@ typedef enum
 #define SWITCH_TWO_EXIT_PIN                   EXTI_IT_Pin2
 
 /* 水银开关3 */
-#define SWITCH_TWO_PORT                       GPIOB
-#define SWITCH_TWO_PIN                        GPIO_Pin_3
-#define SWITCH_TWO_EXIT_PIN                   EXTI_IT_Pin3
+#define SWITCH_THREE_PORT                     GPIOB
+#define SWITCH_THREE_PIN                      GPIO_Pin_3
+#define SWITCH_THREE_EXIT_PIN                 EXTI_IT_Pin3
 
 /*************************          LED灯         *************************/
 /* 震动灯 */
@@ -198,8 +198,8 @@ typedef struct
 	uint8_t     m_flg_alarm : 1;							            // 设备是否报警
 	uint8_t     m_gps_ok : 1;											// GPS是否定位成功
 	uint8_t     m_flg_wake_dev : 1;								        // 是否唤醒设备
-	uint8_t     m_flg_nb_init : 1;										// NB模块状态
-	uint8_t     m_flg_nb_net : 1;										// NB网络状态
+	uint8_t     m_flg_nb_init : 1;										// NB 模块状态
+	uint8_t     m_flg_nb_net : 1;										// NB 网络状态
 	uint8_t     m_flg_nb_gps : 1;										// NB GPS状态
 	uint8_t     m_flg_nb_rep : 1;										// 判断设备是否为定时上报
 	uint8_t     m_heartbeat_respond : 1;						        // 心跳包反馈

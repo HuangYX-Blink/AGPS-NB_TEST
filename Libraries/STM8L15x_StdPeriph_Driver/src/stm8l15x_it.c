@@ -44,8 +44,8 @@
 /* Private typedef -----------------------------------------------------------*/
 /* Private define ------------------------------------------------------------*/
 /* Private macro -------------------------------------------------------------*/
-#define GPIO_RESET(port, pin)			port->ODR &= (uint8_t)(~pin)
-#define GPIO_TOGGLEBIT(port, pin)       port->ODR ^= pin
+#define GPIO_RESET(port,pin)                  port->ODR &= (uint8_t)(~pin)
+#define GPIO_TOGGLEBIT(port,pin)              port->ODR ^= pin
 
 /* Private variables ---------------------------------------------------------*/
 static __IO uint8_t s_vu8_timer_10ms_index = 0x00;
@@ -129,43 +129,36 @@ INTERRUPT_HANDLER(RTC_CSSLSE_IRQHandler,4)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
-	if (RTC_GetITStatus(RTC_IT_WUT) != RESET)
+	if (RTC_GetITStatus(RTC_IT_WUT) != RESET) 
 	{
 		do 
 		{
 			/* 只有在开启空调滤波是才开启本操作，为了防止设备提前定时上报 */
 #ifdef USE_AIR_FILTER
-			if (FALSE == g_run_paramter.air_filtering)
+			if (FALSE == g_run_paramter.air_filtering) 
 			{
 #endif // USE_AIR_FILTER
 				/* 旁路时间半个小时自减一次 */
 				if (g_run_paramter.m_tim_passby
 					&& 0 != (--g_run_paramter.m_tim_passby))
 				{
-					// --g_run_paramter.m_tim_passby;
 					break;
 				}
 
 				/* 设备睡眠时间 */
 				if (g_run_paramter.m_tim_sleep
-					&& 0 != (--g_run_paramter.m_tim_sleep))
+					&& 0 != (--g_run_paramter.m_tim_sleep)) 
 				{
-					// --g_run_paramter.m_tim_sleep;
 					break;
 				}
 				/* 睡眠结束,唤醒设备进行定是上报 */
 				g_run_paramter.m_flg_wake_dev = TRUE;
 				g_run_paramter.m_flg_nb_rep = TRUE;
-
-
-				/* 重新装载下次睡眠持续的时间 */
-				// g_run_paramter.m_tim_sleep = 2 * g_ccfg_config.m_tim_sleep;
 #ifdef USE_AIR_FILTER
 			}
 #endif // USE_AIR_FILTER
 
 		} while (0);
-
 	}
 	RTC_ClearITPendingBit(RTC_IT_WUT);
 }
@@ -240,22 +233,19 @@ INTERRUPT_HANDLER(EXTI2_IRQHandler,10)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
-
-
+	
 	/* 水银开关二 */
-	if (EXTI_GetITStatus(SWITCH_TWO_EXIT_PIN) != RESET)
+	if (EXTI_GetITStatus(SWITCH_TWO_EXIT_PIN) != RESET) 
 	{
-		if (GPIO_ReadInputDataBit(SWITCH_TWO_PORT, SWITCH_TWO_PIN) != SET)  // 读取水银1引脚
+		if (GPIO_ReadInputDataBit(SWITCH_TWO_PORT, SWITCH_TWO_PIN) != SET)     // 读取水银开关二引脚
 		{
-		//  GPIO_WriteBit(GPIOA, GPIO_Pin_3, RESET);
 			g_run_paramter.m_switch_trigger_cnt++;
-			g_run_paramter.m_flg_en_alarm_led = TRUE; // 指示报警    
+			g_run_paramter.m_flg_en_alarm_led = TRUE;    // 指示报警
 			g_run_paramter.m_flg_alarm = TRUE;
 		}
 	}
 
 	EXTI_ClearITPendingBit(EXTI_IT_Pin2);
-	
 }
 
 /**
@@ -269,23 +259,19 @@ INTERRUPT_HANDLER(EXTI3_IRQHandler,11)
        it is recommended to set a breakpoint on the following instruction.
     */
 
-
 	/* 外部中断唤醒后，重新喂狗 */
 
 	/* 水银开关三 */
-	if (EXTI_GetITStatus(SWITCH_THREE_EXIT_PIN) != RESET)
+	if (EXTI_GetITStatus(SWITCH_THREE_EXIT_PIN) != RESET) 
 	{
-		
-		if (GPIO_ReadInputDataBit(SWITCH_THREE_PORT, SWITCH_THREE_PIN) != SET)
+		if (GPIO_ReadInputDataBit(SWITCH_THREE_PORT, SWITCH_THREE_PIN) != SET) 
 		{
-
-		//	GPIO_WriteBit(GPIOA, GPIO_Pin_2, RESET);
-			//IWDG_ReloadCounter();//外部中断唤醒后，重新喂狗
 			g_run_paramter.m_switch_trigger_cnt++;
-			g_run_paramter.m_flg_en_alarm_led = TRUE;// 指示报警    
+			g_run_paramter.m_flg_en_alarm_led = TRUE;    // 指示报警
 			g_run_paramter.m_flg_alarm = TRUE;
 		}
 	}
+
 	EXTI_ClearITPendingBit(EXTI_IT_Pin3);
 }
 
@@ -386,10 +372,9 @@ INTERRUPT_HANDLER(TIM2_UPD_OVF_TRG_BRK_USART2_TX_IRQHandler,19)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
-	p_swut_send_timing();
-	///*清除中断标志*/
+	p_send_timing();
+	/* 清除中断标志 */
 	TIM2_ClearITPendingBit(TIM2_IT_Update);
-
 }
 
 /**
@@ -417,8 +402,8 @@ INTERRUPT_HANDLER(TIM3_UPD_OVF_TRG_BRK_USART3_TX_IRQHandler,21)
     */
 	TIM3_ClearITPendingBit(TIM3_IT_Update);
 
-	/* 1s 时间戳 */
-	if (++s_1s_reload_timer >= 100)
+	/* 1s时间戳 */
+	if (++s_1s_reload_timer >= 100) 
 	{
 		s_1s_reload_timer = 0;
 		g_vu32_1s_timer++;
@@ -427,16 +412,12 @@ INTERRUPT_HANDLER(TIM3_UPD_OVF_TRG_BRK_USART3_TX_IRQHandler,21)
 	/* 10ms时间戳 */
 	g_vu32_10ms_timer++;
 
-
-
 #ifdef USE_IWDG
-
-	/* 100ms 喂一次狗 */
-	if (g_vu32_10ms_timer-g_run_paramter.m_IWDG_reload_time < DEFAULT_IWDG_TIME && g_vu32_10ms_timer%10 == 0)
+	/* 100ms喂一次狗 */
+	if (g_vu32_10ms_timer - g_run_paramter.m_IWDG_reload_time < DEFAULT_IWDG_TIME && g_vu32_10ms_timer % 10 == 0) 
 	{
 		IWDG_RELOAD();
 	}
-
 #endif // USE_IWDG
 
 }
@@ -461,8 +442,7 @@ INTERRUPT_HANDLER(TIM1_UPD_OVF_TRG_COM_IRQHandler,23)
     /* In order to detect unexpected events during development,
        it is recommended to set a breakpoint on the following instruction.
     */
-	//p_swut_recv_timing();
-	//TIM1_ClearFlag(TIM1_FLAG_Update);
+
 }
 /**
   * @brief TIM1 Capture/Compare Interrupt routine.
@@ -490,32 +470,22 @@ INTERRUPT_HANDLER(TIM4_UPD_OVF_TRG_IRQHandler,25)
 	TIM4_ClearITPendingBit(TIM4_IT_Update);
 
 	s_vu8_timer_10ms_index++;
-	if (s_vu8_timer_10ms_index >= 200)
+	if (s_vu8_timer_10ms_index >= 200) 
 	{
 		s_vu8_timer_10ms_index = 0;
 	}
 
-	//if (GET_10MS_TIMER() - g_l620_net_timeout > 30000) // 300s无数据，复位
-	//{
-	//	p_task_enqueue(TASK_SEND_DATA, "NO SEVER DATA", NULL);
-	//	p_task_enqueue(TASK_NBREST, NULL, NULL);
-	//	g_l620_net_timeout = GET_10MS_TIMER();
-	//}
 #ifndef SOFTUART
-	
 	switch (led_status)
 	{
-
-	case NB_NET_UNREG:	// 网络未注册，慢闪
-		if (0 == s_vu8_timer_10ms_index % 100)
+	case NB_NET_UNREG:    // 网络未注册，慢闪
+		if (0 == s_vu8_timer_10ms_index % 100) 
 		{
 			GPIO_TOGGLEBIT(LED_REGISTER_PORT, LED_REGISTER_PIN);
 		}
-
 		break;
-
-	case NB_CSQ_LOW:	// 信号弱，长灭一闪
-		if (s_vu8_timer_10ms_index % 100 <= 5)
+	case NB_CSQ_LOW:    // 信号弱，长灭一闪
+		if (s_vu8_timer_10ms_index % 100 <= 5) 
 		{
 			GPIO_RESET(LED_REGISTER_PORT, LED_REGISTER_PIN);
 		}
@@ -524,60 +494,49 @@ INTERRUPT_HANDLER(TIM4_UPD_OVF_TRG_IRQHandler,25)
 			GPIO_SetBits(LED_REGISTER_PORT, LED_REGISTER_PIN);
 		}
 		break;
-
-	case NB_CSQ_HIGH:	// 信号强,常亮
-
-		
-		if ((GET_10MS_TIMER() - g_l620_net_timeout < 200) &(g_l620_net_timeout!=0)) // 5s内有udp反馈包，常亮一灭
+	case NB_CSQ_HIGH:    // 信号强,常亮
+		if ((GET_10MS_TIMER() - g_bc20_net_timeout < 200) & (g_bc20_net_timeout != 0))     // 5s内有udp反馈包，常亮一灭
 		{
-			if (0 == s_vu8_timer_10ms_index % 5)  
+			if (0 == s_vu8_timer_10ms_index % 5) 
 			{
 				GPIO_TOGGLEBIT(LED_REGISTER_PORT, LED_REGISTER_PIN);
 			}
-			
 		}
 		else
 		{
 			GPIO_RESET(LED_REGISTER_PORT, LED_REGISTER_PIN);
 		}
-
 		break;
 	default:
 		break;
 	}
 #endif // !SOFTUART
 
-	if (0 == s_vu8_timer_10ms_index % (TRUE == g_run_paramter.m_flg_en_unreg ? 5 : 100))
+	if (0 == s_vu8_timer_10ms_index % (TRUE == g_run_paramter.m_flg_en_unreg ? 5 : 100)) 
 	{
-		if (TRUE == g_run_paramter.m_gps_ok)
+		if (TRUE == g_run_paramter.m_gps_ok) 
 		{
 			GPIO_RESET(LED_GPS_PORT, LED_GPS_PIN);
 		}
-		else 
+		else
 		{
 			GPIO_TOGGLEBIT(LED_GPS_PORT, LED_GPS_PIN);
 		}
-
-
 	}
 
-
 	++s_alarm_led_index;
-
-	if (s_alarm_led_index > 200)
+	if (s_alarm_led_index > 200) 
 	{
 		s_alarm_led_index = 0x00;
 		g_run_paramter.m_flg_en_alarm_led = FALSE;
 
 		/* 保证闪烁后灯是关闭的 */
-	GPIO_Init(LED_SHAKE_PORT, LED_SHAKE_PIN, GPIO_Mode_Out_PP_High_Slow);
+		GPIO_Init(LED_SHAKE_PORT, LED_SHAKE_PIN, GPIO_Mode_Out_PP_High_Slow);
 	}
-
-
 
 	/* 震动灯 */
 	if (TRUE == g_run_paramter.m_flg_en_alarm_led
-		&& 0 == s_alarm_led_index % 5)
+		&& 0 == s_alarm_led_index % 5) 
 	{
 		GPIO_TOGGLEBIT(LED_SHAKE_PORT, LED_SHAKE_PIN);
 	}
@@ -619,30 +578,23 @@ INTERRUPT_HANDLER(USART1_RX_TIM5_CC_IRQHandler,28)
        it is recommended to set a breakpoint on the following instruction.
     */
 
-	if (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) != RESET)
+	if (USART_GetFlagStatus(USART1, USART_FLAG_RXNE) != RESET) 
 	{
 		/*产生了串口1接收中断*/
-		static uint8_t gps_index=0;
-		u8 data = USART_ReceiveData8(USART1);
+		static uint8_t gps_index = 0;
+		uint8_t data = USART_ReceiveData8(USART1);
 		USART_ClearITPendingBit(USART1, USART_IT_RXNE);
-		//	USART_ClearFlag(USART1, USART_FLAG_RXNE);
 
 		g_buff.m_recv_timeout = GET_10MS_TIMER();
-		
-	
-			do 
-			{
-				if (g_buff.m_recv_index >=511)
-				{
-					break;
-                                }
-				g_buff.m_recv_buff[g_buff.m_recv_index++] = data;
-				//test
-				//p_swut_write2buff(data);
-			} while (0);
-		
-		//}
 
+		do 
+		{
+			if (g_buff.m_recv_index >= 511) 
+			{
+				break;
+			}
+			g_buff.m_recv_buff[g_buff.m_recv_index++] = data;
+		} while (0);
 	}
 }
 

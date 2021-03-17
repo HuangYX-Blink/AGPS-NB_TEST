@@ -222,6 +222,8 @@ extern "C" {
 		/* 读取Option byte 中独立看门狗设置的数据 */
 		if (FLASH_ReadByte(0x0004808) != 0x02)    //判断看门狗在休眠状态是否停止
 		{
+			softuart_printf("IWDG IS RUNing\r\n");
+
 			FLASH->CR2 = 0x80;    //设置OPT：对选项字节进行写操作使能
 			FLASH_Unlock(FLASH_MemType_Data);    //flash 先解锁
 			/* Wait until Data EEPROM area unlocked flag is set*/
@@ -231,6 +233,10 @@ extern "C" {
 			FLASH_WaitForLastOperation(FLASH_MemType_Data);
 			FLASH_Lock(FLASH_MemType_Data);    //flash 重新上锁
 			FLASH->CR2 = 0x00;    //设置OPT：对选项字节进行写操作恢复禁止
+		}
+		else
+		{
+			softuart_printf("IWDG IS STOP\r\n");
 		}
 		/* Enable IWDG (the LSI oscillator will be enabled by hardware) */
 		IWDG_Enable();
@@ -355,9 +361,17 @@ extern "C" {
 					tx_status = 0;
 				}
 
+				softuart_printf("tx_statusis %d\r\n", tx_status);
+				softuart_printf("rx_status %d\r\n", rx_status);
+
 				if (rx_status == tx_status) 
 				{
+					softuart_printf("j is %d\r\n", j);
 					++j;
+				}
+				else
+				{
+					softuart_printf("j is NULL ");
 				}
 
 				/* 灯状态 */
@@ -383,8 +397,11 @@ extern "C" {
 			GPIO_SetBits(LED_GPS_PORT, LED_GPS_PIN);    //拉高GPS状态灯
 
 			TIM4_Cmd(ENABLE);
-
 		}
+
+		softuart_printf("before load m_flg_alarm is %d\r\n", g_run_paramter.m_flg_alarm);
+		p_ccfg_load();      //载入配置
+		softuart_printf("after load m_flg_alarm is %d\r\n", g_run_paramter.m_flg_alarm);
 	}
 
 

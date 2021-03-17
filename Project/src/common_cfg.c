@@ -15,7 +15,6 @@
 
 /*************************     系统头文件包含     *************************/
 #include "common_cfg.h"
-#include "eeprom.h"
 /*************************     私有头文件包含     *************************/
 
 
@@ -132,6 +131,7 @@ extern "C" {
 	  */
 	void p_ccfg_reset(void)
 	{
+		softuart_printf("CCFG RESET\r\n");
 		/* 清空电话列表 */
 		for (uint8_t i = 0;i < 8;i++) 
 		{
@@ -215,6 +215,7 @@ extern "C" {
 		/* 检查数据是否正常 */
 		if (g_ccfg_config.m_cfg_verify != 0x12341234) 
 		{
+			softuart_printf("load data is not nomal\r\n");
 			p_ccfg_reset();    // 数据不正常，载入默认配置
 		}
 
@@ -393,6 +394,7 @@ extern "C" {
 
 		g_run_paramter.m_tim_heardbeat = g_ccfg_config.m_tim_heartbeat;
 
+		softuart_printf("m_flg_alarm is %d\r\n", g_run_paramter.m_flg_alarm);
 		/* 报警与未报警的上报时间不相同 */
 		if (TRUE == g_run_paramter.m_flg_alarm) 
 		{

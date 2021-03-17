@@ -1,10 +1,12 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Libraries\\STM8L15x_StdPeriph_Driver",
+    "\\Libraries\\STM8L15x_StdPeriph_Driver\\src",
     "\\Project",
     "\\Project\\inc",
     "\\Project\\src"
   ],
-  "SelectedNode": "\\Project\\inc\\default.h",
+  "SelectedNode": "\\Project\\src\\common_cfg.c",
   "PreviewInSolutionExplorer": false
 }

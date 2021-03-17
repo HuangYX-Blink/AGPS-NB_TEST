@@ -1639,6 +1639,12 @@
     <group>
         <name>inc</name>
         <file>
+            <name>$PROJ_DIR$\..\inc\AT.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\BC20.h</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\inc\common_cfg.h</name>
         </file>
         <file>
@@ -1649,6 +1655,21 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\inc\proto.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\sleep.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\soft_uart.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\switch.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\task_queue.h</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\inc\utils.h</name>
         </file>
     </group>
     <group>
@@ -1846,6 +1867,12 @@
     <group>
         <name>src</name>
         <file>
+            <name>$PROJ_DIR$\..\src\AT.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\BC20.c</name>
+        </file>
+        <file>
             <name>$PROJ_DIR$\..\src\common_cfg.c</name>
         </file>
         <file>
@@ -1856,6 +1883,21 @@
         </file>
         <file>
             <name>$PROJ_DIR$\..\src\proto.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\sleep.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\soft_uart.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\switch.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\task_queue.c</name>
+        </file>
+        <file>
+            <name>$PROJ_DIR$\..\src\utils.c</name>
         </file>
     </group>
 </project>
